@@ -8,13 +8,15 @@ import pytest
 # A basic math function
 # -------------------------------------------------------
 
-
+@pytest.mark.math
 def test_one_plus_one():
     assert 1+1 == 2 
 
+@pytest.mark.math
 def test_one_minus_one_success_():
     assert 1-1 == 0
 
+@pytest.mark.math
 def test_divivde_by_zero():
     with pytest.raises(ZeroDivisionError) as e:
         num = 1/0
@@ -29,6 +31,7 @@ products = [
     (2.5, 3.5, 8.75),    # float by float
 ]
 
+@pytest.mark.math
 @pytest.mark.parametrize('a, b, product', products)
 def test_multiplication(a, b, product):
     assert a * b == product
